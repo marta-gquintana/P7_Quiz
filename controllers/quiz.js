@@ -156,6 +156,8 @@ exports.check = (req, res, next) => {
 
 exports.randomplay=(req,res,next)=>{
     if(req.session.randomplay===undefined){
+        //session guarda el estado del juego
+        //en yun array con los ids de las preguntas ya contestadas
         req.session.randomplay=[];
     }
     const whereOpt={"id":{[Sequelize.Op.notIn]:req.session.randomplay}};
